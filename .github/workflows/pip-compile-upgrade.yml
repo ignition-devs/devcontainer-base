@@ -1,0 +1,16 @@
+name: pip-compile-upgrade
+
+on:
+  schedule:
+    - cron: '0 18 14,28 * *'
+  workflow_dispatch:
+
+jobs:
+  pip-compile-upgrade:
+    uses: coatl-dev/workflows/.github/workflows/pip-compile-upgrade.yml@v4
+    with:
+      path: requirements
+    secrets:
+      gh-token: ${{ secrets.COATL_BOT_GH_TOKEN }}
+      gpg-sign-passphrase: ${{ secrets.COATL_BOT_GPG_PASSPHRASE }}
+      gpg-sign-private-key: ${{ secrets.COATL_BOT_GPG_PRIVATE_KEY }}
