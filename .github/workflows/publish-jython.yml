@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
   schedule:
-    - cron: '0 20 14,28 * *'
+    - cron: '0 20 * * 1,5'
 
 env:
   REGISTRY_IMAGE: quay.io/ignition-devs/devcontainer-base
@@ -96,6 +96,7 @@ jobs:
       - name: Login to Quay
         uses: docker/login-action@v3
         with:
+          registry: quay.io
           username: ${{ vars.QUAY_USERNAME }}
           password: ${{ secrets.QUAY_ROBOT_TOKEN }}
 
