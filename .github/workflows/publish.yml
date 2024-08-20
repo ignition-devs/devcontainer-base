@@ -3,7 +3,7 @@ name: publish
 on:
   push:
     branches:
-      - 'coatl'
+      - 'main'
   schedule:
     - cron: '0 20 14,28 * *'
 
