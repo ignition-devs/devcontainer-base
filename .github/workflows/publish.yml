@@ -19,16 +19,15 @@ jobs:
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
 
-
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Login to GitHub Container Registry
+      - name: Login to Quay
         uses: docker/login-action@v3
         with:
-          registry: ghcr.io
-          username: ${{ vars.GHCR_USERNAME }}
-          password: ${{ secrets.GHCR_TOKEN }}
+          registry: quay.io
+          username: ${{ vars.QUAY_USERNAME }}
+          password: ${{ secrets.QUAY_ROBOT_TOKEN }}
 
       - name: Build and push
         uses: docker/build-push-action@v6
@@ -39,4 +38,4 @@ jobs:
           platforms: linux/${{ matrix.platform }}
           push: true
           tags: |
-            ghcr.io/ignition-devs/devcontainer-base:${{ matrix.variant }}
+            quay.io/ignition-devs/devcontainer-base:${{ matrix.variant }}
