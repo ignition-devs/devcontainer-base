@@ -1,0 +1,25 @@
+name: publish
+
+on:
+  push:
+    branches:
+      - 'main'
+  schedule:
+    - cron: '0 20 14,28 * *'
+
+jobs:
+  publish:
+    uses: coatl-dev/workflows/.github/workflows/docker-publish-multi-platform.yml@v5
+    strategy:
+      matrix:
+        variant: [jython, python]
+    with:
+      registry-image: quay.io/ignition-devs/devcontainer-base
+      metadata-tags: |
+        ${{ matrix.variant}}
+      registry-address: quay.io
+      registry-username: ${{ vars.QUAY_USERNAME }}
+      build-file: ${{ matrix.variant }}/Dockerfile
+      build-cache-key: ${{ matrix.variant }}
+    secrets:
+      registry-password: ${{ secrets.QUAY_ROBOT_TOKEN }}
