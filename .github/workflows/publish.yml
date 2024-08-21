@@ -8,19 +8,30 @@ on:
     - cron: '0 20 14,28 * *'
 
 jobs:
-  publish:
+  publish-jython:
     uses: coatl-dev/workflows/.github/workflows/docker-publish-multi-platform.yml@v5
-    strategy:
-      matrix:
-        variant: [jython, python]
     with:
       registry-image: quay.io/ignition-devs/devcontainer-base
       metadata-tags: |
-        ${{ matrix.variant}}
+        jython
       registry-address: quay.io
       registry-username: ${{ vars.QUAY_USERNAME }}
-      build-file: ${{ matrix.variant }}/Dockerfile
-      build-cache-key: ${{ matrix.variant }}
-      build-digest-key: ${{ matrix.variant }}
+      build-file: jython/Dockerfile
+      build-cache-key: jython
+      build-digest-key: jython
+    secrets:
+      registry-password: ${{ secrets.QUAY_ROBOT_TOKEN }}
+
+  publish-python:
+    uses: coatl-dev/workflows/.github/workflows/docker-publish-multi-platform.yml@v5
+    with:
+      registry-image: quay.io/ignition-devs/devcontainer-base
+      metadata-tags: |
+        python
+      registry-address: quay.io
+      registry-username: ${{ vars.QUAY_USERNAME }}
+      build-file: python/Dockerfile
+      build-cache-key: python
+      build-digest-key: python
     secrets:
       registry-password: ${{ secrets.QUAY_ROBOT_TOKEN }}
