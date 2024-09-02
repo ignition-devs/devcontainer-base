@@ -60,7 +60,7 @@ pre-commit==3.8.0
     # via -r requirements.in
 prompt-toolkit==3.0.36
     # via questionary
-pylint==3.2.6
+pylint==3.2.7
     # via -r requirements.in
 pyproject-api==1.7.1
     # via tox
