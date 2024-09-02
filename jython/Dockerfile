@@ -1,4 +1,4 @@
-FROM coatldev/six:3.12 AS base
+FROM quay.io/coatldev/six:3.12 AS base
 
 ENV JYTHON_HOME=/opt/jython
 

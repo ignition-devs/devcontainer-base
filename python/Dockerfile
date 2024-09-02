@@ -1,4 +1,4 @@
-FROM coatldev/six:3.12
+FROM quay.io/coatldev/six:3.12
 
 COPY requirements /tmp/requirements
 
