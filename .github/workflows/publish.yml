@@ -9,7 +9,7 @@ on:
 
 jobs:
   publish:
-    uses: ./.github/workflows/publish-multi-platform.yml
+    uses: coatl-dev/workflows/.github/workflows/docker-build-push-multi-platform.yml@v4
     strategy:
       matrix:
         variant: [jython, python]
