@@ -4,6 +4,11 @@ on:
   push:
     branches:
       - 'main'
+    paths:
+      - '.github/workflows/publish.yml'
+      - 'jython/**'
+      - 'python/**'
+      - 'requirements/**'
   schedule:
     - cron: '0 1 * * 0,3'
 
