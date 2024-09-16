@@ -32,7 +32,7 @@ filelock==3.16.0
     # via
     #   tox
     #   virtualenv
-identify==2.6.0
+identify==2.6.1
     # via pre-commit
 isort==5.13.2
     # via pylint
@@ -49,7 +49,7 @@ packaging==24.1
     #   commitizen
     #   pyproject-api
     #   tox
-platformdirs==4.3.2
+platformdirs==4.3.3
     # via
     #   pylint
     #   tox
