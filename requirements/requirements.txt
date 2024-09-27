@@ -20,7 +20,7 @@ colorama==0.4.6
     # via
     #   commitizen
     #   tox
-commitizen==3.29.0
+commitizen==3.29.1
     # via -r requirements.in
 decli==0.6.2
     # via commitizen
@@ -60,7 +60,7 @@ pre-commit==3.8.0
     # via -r requirements.in
 prompt-toolkit==3.0.36
     # via questionary
-pylint==3.3.0
+pylint==3.3.1
     # via -r requirements.in
 pyproject-api==1.8.0
     # via tox
@@ -78,7 +78,7 @@ tomlkit==0.13.2
     #   pylint
 tox==4.20.0
     # via -r requirements.in
-virtualenv==20.26.5
+virtualenv==20.26.6
     # via
     #   pre-commit
     #   tox
