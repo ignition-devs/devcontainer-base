@@ -24,7 +24,7 @@ commitizen==3.29.1
     # via -r requirements.in
 decli==0.6.2
     # via commitizen
-dill==0.3.8
+dill==0.3.9
     # via pylint
 distlib==0.3.8
     # via virtualenv
