@@ -21,7 +21,7 @@ jobs:
     with:
       registry-image: quay.io/ignition-devs/devcontainer-base
       metadata-tags: |
-        ${{ matrix.variant}}
+        ${{ matrix.variant }}
       registry-address: quay.io
       registry-username: ${{ vars.QUAY_USERNAME }}
       build-file: ${{ matrix.variant }}/Dockerfile
