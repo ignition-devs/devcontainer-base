@@ -1,4 +1,4 @@
-FROM quay.io/coatldev/six:3.12 AS base
+FROM quay.io/coatldev/six:3.13 AS base
 
 ENV JYTHON_HOME=/opt/jython
 
@@ -39,7 +39,7 @@ COPY requirements /tmp/requirements/
 
 RUN set -eux; \
     \
-    python3 -m pip install --requirement \
+    python -m pip install --requirement \
         /tmp/requirements/requirements.txt
 
 CMD ["/bin/bash"]
