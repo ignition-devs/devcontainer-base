@@ -38,7 +38,7 @@ isort==5.13.2
     # via pylint
 jinja2==3.1.4
     # via commitizen
-markupsafe==3.0.1
+markupsafe==3.0.2
     # via jinja2
 mccabe==0.7.0
     # via pylint
@@ -76,9 +76,9 @@ tomlkit==0.13.2
     # via
     #   commitizen
     #   pylint
-tox==4.21.2
+tox==4.23.0
     # via -r requirements.in
-virtualenv==20.26.6
+virtualenv==20.27.0
     # via
     #   pre-commit
     #   tox
