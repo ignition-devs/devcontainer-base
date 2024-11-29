@@ -20,7 +20,7 @@ colorama==0.4.6
     # via
     #   commitizen
     #   tox
-commitizen==3.31.0
+commitizen==4.0.0
     # via -r requirements.in
 decli==0.6.2
     # via commitizen
@@ -32,7 +32,7 @@ filelock==3.16.1
     # via
     #   tox
     #   virtualenv
-identify==2.6.2
+identify==2.6.3
     # via pre-commit
 isort==5.13.2
     # via pylint
@@ -78,7 +78,7 @@ tomlkit==0.13.2
     #   pylint
 tox==4.23.2
     # via -r requirements.in
-virtualenv==20.27.1
+virtualenv==20.28.0
     # via
     #   pre-commit
     #   tox
