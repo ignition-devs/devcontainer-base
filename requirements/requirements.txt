@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-argcomplete==3.5.1
+argcomplete==3.5.2
     # via commitizen
 astroid==3.3.5
     # via pylint
@@ -20,7 +20,7 @@ colorama==0.4.6
     # via
     #   commitizen
     #   tox
-commitizen==4.0.0
+commitizen==4.1.0
     # via -r requirements.in
 decli==0.6.2
     # via commitizen
