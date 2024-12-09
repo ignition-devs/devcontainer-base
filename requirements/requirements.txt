@@ -6,7 +6,7 @@
 #
 argcomplete==3.5.2
     # via commitizen
-astroid==3.3.5
+astroid==3.3.6
     # via pylint
 cachetools==5.5.0
     # via tox
