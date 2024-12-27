@@ -6,7 +6,7 @@
 #
 argcomplete==3.5.2
     # via commitizen
-astroid==3.3.6
+astroid==3.3.8
     # via pylint
 cachetools==5.5.0
     # via tox
@@ -14,7 +14,7 @@ cfgv==3.4.0
     # via pre-commit
 chardet==5.2.0
     # via tox
-charset-normalizer==3.4.0
+charset-normalizer==3.4.1
     # via commitizen
 colorama==0.4.6
     # via
@@ -60,7 +60,7 @@ pre-commit==3.8.0
     # via -r requirements.in
 prompt-toolkit==3.0.36
     # via questionary
-pylint==3.3.2
+pylint==3.3.3
     # via -r requirements.in
 pyproject-api==1.8.0
     # via tox
