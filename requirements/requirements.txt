@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-argcomplete==3.5.2
+argcomplete==3.5.3
     # via commitizen
 astroid==3.3.8
     # via pylint
@@ -78,7 +78,7 @@ tomlkit==0.13.2
     #   pylint
 tox==4.23.2
     # via -r requirements.in
-virtualenv==20.28.0
+virtualenv==20.28.1
     # via
     #   pre-commit
     #   tox
