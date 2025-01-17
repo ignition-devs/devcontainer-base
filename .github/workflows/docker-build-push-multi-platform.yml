@@ -65,7 +65,7 @@ jobs:
         builder:
           - runner-image: ubuntu-latest
             platform: linux/amd64
-          - runner-image: blacksmith-arm
+          - runner-image: ubuntu-24.04-arm
             platform: linux/arm64
     steps:
       - name: Prepare
