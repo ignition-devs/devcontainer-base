@@ -8,7 +8,7 @@ argcomplete==3.5.3
     # via commitizen
 astroid==3.3.8
     # via pylint
-cachetools==5.5.0
+cachetools==5.5.1
     # via tox
 cfgv==3.4.0
     # via pre-commit
@@ -28,11 +28,11 @@ dill==0.3.9
     # via pylint
 distlib==0.3.9
     # via virtualenv
-filelock==3.16.1
+filelock==3.17.0
     # via
     #   tox
     #   virtualenv
-identify==2.6.5
+identify==2.6.6
     # via pre-commit
 isort==5.13.2
     # via pylint
@@ -62,7 +62,7 @@ prompt-toolkit==3.0.50
     # via questionary
 pylint==3.3.3
     # via -r requirements.in
-pyproject-api==1.8.0
+pyproject-api==1.9.0
     # via tox
 pyyaml==6.0.2
     # via
@@ -76,7 +76,7 @@ tomlkit==0.13.2
     # via
     #   commitizen
     #   pylint
-tox==4.23.2
+tox==4.24.1
     # via -r requirements.in
 virtualenv==20.29.1
     # via
