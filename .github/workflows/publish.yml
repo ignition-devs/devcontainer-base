@@ -9,8 +9,6 @@ on:
       - 'jython/**'
       - 'python/**'
       - 'requirements/**'
-  schedule:
-    - cron: '0 1 * * 0,3'
   workflow_dispatch:
 
 jobs:
