@@ -34,7 +34,7 @@ filelock==3.17.0
     #   virtualenv
 identify==2.6.6
     # via pre-commit
-isort==5.13.2
+isort==6.0.0
     # via pylint
 jinja2==3.1.5
     # via commitizen
@@ -60,7 +60,7 @@ pre-commit==3.8.0
     # via -r requirements.in
 prompt-toolkit==3.0.50
     # via questionary
-pylint==3.3.3
+pylint==3.3.4
     # via -r requirements.in
 pyproject-api==1.9.0
     # via tox
