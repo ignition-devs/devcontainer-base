@@ -24,7 +24,6 @@ jobs:
       registry-address: quay.io
       registry-username: ${{ vars.QUAY_USERNAME }}
       build-file: ${{ matrix.variant }}/Dockerfile
-      build-cache-key: ${{ matrix.variant }}
-      build-digest-key: ${{ matrix.variant }}
+      build-cache: false
     secrets:
       registry-password: ${{ secrets.QUAY_ROBOT_TOKEN }}
