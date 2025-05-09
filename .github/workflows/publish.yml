@@ -3,11 +3,11 @@ name: publish
 on:
   push:
     branches:
-      - 'main'
+      - main
     paths:
-      - 'jython/**'
-      - 'python/**'
-      - 'requirements/**'
+      - jython/**
+      - python/**
+      - requirements/**
   workflow_dispatch:
 
 jobs:
