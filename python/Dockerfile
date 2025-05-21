@@ -29,17 +29,14 @@ COPY requirements /tmp/requirements
 
 RUN set -eux; \
     \
-    python2 -m pip install --requirement \
-        /tmp/requirements/2.7/virtualenv.txt; \
-    \
     python -m pip install --requirement \
-        /tmp/requirements/3.13/pipx.txt; \
+        /tmp/requirements/tools.txt; \
     \
-    while IFS= read -r tool || [ -n "$tool" ]; do \
-        if [ -n "$tool" ]; then \
-            pipx install "$tool"; \
+    while IFS= read -r package_spec || [ -n "$package_spec" ]; do \
+        if [ -n "$package_spec" ]; then \
+            pipx install "$package_spec"; \
         fi; \
-    done < /tmp/requirements/pipx/tools.txt; \
+    done < /tmp/requirements/pipx.txt; \
     \
     rm -rf /tmp/requirements
 
