@@ -6,7 +6,7 @@
 #
 argcomplete==3.6.2
     # via pipx
-click==8.2.0
+click==8.2.1
     # via userpath
 packaging==25.0
     # via pipx
