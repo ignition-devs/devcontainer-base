@@ -51,7 +51,7 @@ COPY --from=starship-installer /usr/local/bin/starship /usr/local/bin/starship
 COPY --from=starship-installer /root/.bashrc /root/.bashrc
 COPY --from=starship-installer /root/.config/starship.toml /root/.config/starship.toml
 
-ENV PATH="${JYTHON_HOME}/bin:$PATH"
+ENV PATH="/root/.local/bin:${JYTHON_HOME}/bin:$PATH"
 
 COPY requirements /tmp/requirements/
 
@@ -61,8 +61,18 @@ RUN set -eux; \
 
 RUN set -eux; \
     \
+    python2 -m pip install --requirement \
+        /tmp/requirements/2.7/virtualenv.txt; \
+    \
     python -m pip install --requirement \
-        /tmp/requirements/requirements.txt; \
+        /tmp/requirements/3.13/pipx.txt; \
+    \
+    while IFS= read -r tool || [ -n "$tool" ]; do \
+        if [ -n "$tool" ]; then \
+            pipx install "$tool"; \
+        fi; \
+    done < /tmp/requirements/pipx/tools.txt; \
+    \
     rm -rf /tmp/requirements
 
 CMD ["/bin/bash"]
