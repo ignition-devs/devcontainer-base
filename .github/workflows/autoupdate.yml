@@ -37,12 +37,6 @@ jobs:
           jq -r '.install[].metadata | "\(.name)==\(.version)"' "$RUNNER_TEMP/pipx.json" > tools.txt
         working-directory: requirements/pipx
 
-      - name: Update base image SHA256
-        run: |
-          new_digest=$(docker buildx imagetools inspect quay.io/coatldev/six:3.13 --format "{{json .Manifest}}" | jq -r ".digest")
-          sed -i "s|quay.io/coatldev/six@sha256:[a-f0-9]\{64\}|quay.io/coatldev/six@$new_digest|" jython/Dockerfile
-          sed -i "s|quay.io/coatldev/six@sha256:[a-f0-9]\{64\}|quay.io/coatldev/six@$new_digest|" python/Dockerfile
-
       - name: Detect changes
         id: git-diff
         uses: coatl-dev/actions/simple-git-diff@v4
