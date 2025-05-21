@@ -52,10 +52,10 @@ jobs:
       - name: Commit and push changes
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
         run: |
-          git checkout -B coatl-dev-pip-compile-upgrade
+          git checkout -B autoupdate
           git add -u
           git commit -m "build(deps): update build dependencies"
-          git push --force --set-upstream origin coatl-dev-pip-compile-upgrade
+          git push --force --set-upstream origin autoupdate
 
       - name: Create pull request
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
