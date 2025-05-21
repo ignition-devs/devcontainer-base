@@ -14,12 +14,6 @@ jobs:
         with:
           token: ${{ secrets.COATL_BOT_GH_TOKEN }}
 
-      - name: Upgrade 2.7 requirements
-        uses: coatl-dev/actions/pip-compile-upgrade@v4
-        with:
-          path: requirements/2.7
-          python-version: '2.7'
-
       - name: Upgrade 3.13 requirements
         uses: coatl-dev/actions/pip-compile-upgrade@v4
         with:
