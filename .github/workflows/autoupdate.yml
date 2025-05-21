@@ -1,0 +1,70 @@
+name: autoupdate
+
+on:
+  schedule:
+    - cron: '0 18 1,16 * *'
+  workflow_dispatch:
+
+jobs:
+  autoupdate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.COATL_BOT_GH_TOKEN }}
+
+      - name: Upgrade 2.7 requirements
+        uses: coatl-dev/actions/pip-compile-upgrade@v4
+        with:
+          path: requirements/2.7
+          python-version: '2.7'
+
+      - name: Upgrade 3.13 requirements
+        uses: coatl-dev/actions/pip-compile-upgrade@v4
+        with:
+          path: requirements/3.13
+          python-version: '3.13'
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.13'
+
+      - name: Upgrade pipx requirements
+        run: |
+          python -m pip install --dry-run --no-deps --report "$RUNNER_TEMP/pipx.json" --requirement tools.in
+          jq -r '.install[].metadata | "\(.name)==\(.version)"' "$RUNNER_TEMP/pipx.json" > tools.txt
+        working-directory: requirements/pipx
+
+      - name: Update base image SHA256
+        run: |
+          new_digest=$(docker buildx imagetools inspect quay.io/coatldev/six:3.13 --format "{{json .Manifest}}" | jq -r ".digest")
+          sed -i "s|quay.io/coatldev/six@sha256:[a-f0-9]\{64\}|quay.io/coatldev/six@$new_digest|" jython/Dockerfile
+          sed -i "s|quay.io/coatldev/six@sha256:[a-f0-9]\{64\}|quay.io/coatldev/six@$new_digest|" python/Dockerfile
+
+      - name: Detect changes
+        id: git-diff
+        uses: coatl-dev/actions/simple-git-diff@v4
+
+      - name: Import GPG key
+        if: ${{ steps.git-diff.outputs.diff == 'true' }}
+        id: gpg-import
+        uses: coatl-dev/actions/gpg-import@v4
+        with:
+          passphrase: ${{ secrets.COATL_BOT_GPG_PASSPHRASE }}
+          private-key: ${{ secrets.COATL_BOT_GPG_PRIVATE_KEY }}
+
+      - name: Commit and push changes
+        if: ${{ steps.git-diff.outputs.diff == 'true' }}
+        run: |
+          git checkout -B coatl-dev-pip-compile-upgrade
+          git add -u
+          git commit -m "build(deps): update build dependencies"
+          git push --force --set-upstream origin coatl-dev-pip-compile-upgrade
+
+      - name: Create pull request
+        if: ${{ steps.git-diff.outputs.diff == 'true' }}
+        uses: coatl-dev/actions/pr-create@v4
+        with:
+          gh-token: ${{ secrets.COATL_BOT_GH_TOKEN }}
