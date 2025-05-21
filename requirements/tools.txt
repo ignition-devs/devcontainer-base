@@ -11,7 +11,7 @@ click==8.2.1
 packaging==25.0
     # via pipx
 pipx==1.7.1
-    # via -r pipx.in
+    # via -r requirements/tools.in
 platformdirs==4.3.8
     # via pipx
 userpath==1.9.2

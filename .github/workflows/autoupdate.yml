@@ -17,7 +17,7 @@ jobs:
       - name: Upgrade 3.13 requirements
         uses: coatl-dev/actions/pip-compile-upgrade@v4
         with:
-          path: tools.txt
+          path: requirements/tools.txt
           python-version: '3.13'
 
       - name: Setup Python
