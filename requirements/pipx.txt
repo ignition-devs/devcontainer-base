@@ -1,4 +1,4 @@
-commitizen==4.8.0
+commitizen==4.8.2
 pre_commit==4.2.0
 pylint==3.3.7
 tox==4.26.0
