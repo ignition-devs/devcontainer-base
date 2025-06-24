@@ -1,5 +1,14 @@
 FROM quay.io/coatldev/six:3.13 AS base
 
+RUN set -eux; \
+    apt-get update --quiet; \
+    apt-get install --yes --no-install-recommends \
+        gnupg2 \
+        iproute2 \
+        ssh \
+    ; \
+    rm -rf /var/lib/apt/lists/*
+
 # >============================================================================<
 
 FROM base AS starship-installer

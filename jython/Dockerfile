@@ -2,11 +2,13 @@ FROM quay.io/coatldev/six:3.13 AS base
 
 ENV JYTHON_HOME=/opt/jython
 
-# install Java
 RUN set -eux; \
     apt-get update --quiet; \
     apt-get install --yes --no-install-recommends \
+        gnupg2 \
+        iproute2 \
         openjdk-17-jre-headless \
+        ssh \
     ; \
     rm -rf /var/lib/apt/lists/*
 
