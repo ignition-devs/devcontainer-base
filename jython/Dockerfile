@@ -59,10 +59,6 @@ COPY requirements /tmp/requirements/
 
 RUN set -eux; \
     \
-    python2 -m pip install virtualenv
-
-RUN set -eux; \
-    \
     python -m pip install --requirement \
         /tmp/requirements/tools.txt; \
     \
