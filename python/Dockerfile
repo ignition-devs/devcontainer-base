@@ -3,15 +3,23 @@ FROM quay.io/coatldev/six:3.13 AS base
 RUN set -eux; \
     apt-get update --quiet; \
     apt-get install --yes --no-install-recommends \
+        bash-completion \
         gnupg2 \
         iproute2 \
         ssh \
     ; \
     rm -rf /var/lib/apt/lists/*
 
+# Enable programmable completion features
+# hadolint ignore=SC2028
+RUN set -eux; \
+    echo '\n. /etc/bash_completion' >> /root/.bashrc
+
 # >============================================================================<
 
 FROM base AS starship-installer
+
+COPY --from=base /root/.bashrc /root/.bashrc
 
 RUN set -eux; \
     curl --silent --show-error --output /tmp/starship.sh https://starship.rs/install.sh; \
