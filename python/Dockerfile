@@ -1,4 +1,4 @@
-FROM quay.io/coatldev/six:3.13 AS base
+FROM quay.io/coatldev/six:latest AS base
 
 RUN set -eux; \
     apt-get update --quiet; \
@@ -42,18 +42,17 @@ COPY --from=starship-installer /root/.config/starship.toml /root/.config/starshi
 
 ENV PATH="/root/.local/bin:$PATH"
 
-COPY requirements /tmp/requirements
+ENV UV_PYTHON=3.14
+
+COPY requirements /tmp/requirements/
 
 RUN set -eux; \
     \
-    python -m pip install --requirement \
-        /tmp/requirements/tools.txt; \
-    \
     while IFS= read -r package_spec || [ -n "$package_spec" ]; do \
         if [ -n "$package_spec" ]; then \
-            pipx install "$package_spec"; \
+            uv tool install "$package_spec"; \
         fi; \
-    done < /tmp/requirements/pipx.txt; \
+    done < /tmp/requirements/uvx.txt; \
     \
     rm -rf /tmp/requirements
 
