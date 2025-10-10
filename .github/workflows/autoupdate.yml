@@ -14,17 +14,10 @@ jobs:
         with:
           token: ${{ secrets.COATL_BOT_GH_TOKEN }}
 
-      - name: Upgrade 3.13 requirements
-        uses: coatl-dev/actions/uv-pip-compile-upgrade@v5
-        with:
-          path: tools.txt
-          python-version: '3.13'
-          working-directory: requirements
-
       - name: Setup Python
         uses: actions/setup-python@v6
         with:
-          python-version: '3.13'
+          python-version: '3.14'
 
       - name: Upgrade uvx requirements
         run: |
