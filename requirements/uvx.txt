@@ -1,4 +1,4 @@
-commitizen==4.16.2
+commitizen==4.16.3
 pre_commit==4.6.0
-pylint==4.0.5
-tox==4.55.0
+pylint==4.0.6
+tox==4.55.1
