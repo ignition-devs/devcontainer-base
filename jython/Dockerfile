@@ -22,7 +22,7 @@ RUN set -eux; \
 
 FROM base AS jython-builder
 
-ENV JYTHON_VERSION=2.7.3
+ENV JYTHON_VERSION=2.7.4
 
 WORKDIR /tmp
 
