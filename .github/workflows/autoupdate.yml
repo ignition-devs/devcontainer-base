@@ -32,7 +32,7 @@ jobs:
       - name: Import GPG key
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
         id: gpg-import
-        uses: coatl-dev/actions/gpg-import@05b877c5c64fc3ddb9e87f47400311ebf64fe9d5 # v7.0.9
+        uses: coatl-dev/actions/gpg-import@40ccdf1f2742b1c19464d7997af84bbb249f89ca # v7.0.10
         with:
           passphrase: ${{ secrets.COATL_BOT_GPG_PASSPHRASE }}
           private-key: ${{ secrets.COATL_BOT_GPG_PRIVATE_KEY }}
