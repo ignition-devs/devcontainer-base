@@ -47,6 +47,6 @@ jobs:
 
       - name: Create pull request
         if: ${{ steps.git-diff.outputs.diff == 'true' }}
-        uses: coatl-dev/actions/pr-create@40ccdf1f2742b1c19464d7997af84bbb249f89ca # v7.0.10
+        uses: coatl-dev/actions/pr-create@eaeed3dde61077bd254f6c8b9b523b0a6b182e19 # v7.0.11
         with:
           gh-token: ${{ secrets.COATL_BOT_GH_TOKEN }}
