@@ -13,7 +13,7 @@ on:
 
 jobs:
   publish:
-    uses: coatl-dev/workflows/.github/workflows/docker-build-push-multi-platform.yml@f510d3ed80fd75af838ca94a07ca2cd24e5221f3 # v7.0.22
+    uses: coatl-dev/workflows/.github/workflows/docker-build-push-multi-platform.yml@dba716bf958802371fa6646c289d9e8d68c053e3 # v7.0.25
     strategy:
       matrix:
         variant: [jython, python]
