@@ -42,7 +42,7 @@ COPY --from=starship-installer /root/.config/starship.toml /root/.config/starshi
 
 ENV PATH="/root/.local/bin:$PATH"
 
-ENV UV_PYTHON=3.14
+ENV UV_PYTHON=3.15
 
 COPY requirements /tmp/requirements/
 
